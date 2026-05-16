@@ -2,31 +2,30 @@
 
 ## Overview
 
-This project simulates a small multi
--subnet Windows network environment using Hyper-V and Windows Server technologies.
+This project simulates a small multi-subnet Windows network environment using Hyper-V and Windows Server technologies.
 
 The lab focuses on:
 
-- TCP/IP networking fundamentals
-- DHCP configuration
-- DNS configuration
-- Routing between subnets using RRAS
-- Cross-subnet communication
-- Windows networking administration
+* TCP/IP networking fundamentals
+* DHCP configuration
+* DNS configuration
+* Routing between subnets using RRAS
+* Cross-subnet communication
+* Windows networking administration
 
-The environment was built to strengthen practical networking skills commonly required for IT Support and Junior System Administrator roles.
+This lab was created to practice practical Windows networking and routing concepts in a virtualized environment.
 
 ---
 
 # Technologies Used
 
-- Windows Server 2022
-- Hyper-V
-- Routing and Remote Access (RRAS)
-- DHCP
-- DNS
-- Windows 10
-- TCP/IP Networking
+* Windows Server 2022
+* Hyper-V
+* Routing and Remote Access (RRAS)
+* DHCP
+* DNS
+* Windows 10
+* TCP/IP Networking
 
 ---
 
@@ -34,8 +33,8 @@ The environment was built to strengthen practical networking skills commonly req
 
 Two isolated internal networks were created in Hyper-V:
 
-- LAN-SALES → 192.168.10.0/24
-- LAN-IT → 192.168.20.0/24
+* LAN-SALES → 192.168.10.0/24
+* LAN-IT → 192.168.20.0/24
 
 FS01 acts as the router between both networks.
 
@@ -51,7 +50,7 @@ FS01 acts as the router between both networks.
 
 # Architecture Diagram
 
-![Architecture](Networking.drawio.png)
+![Architecture](Screenshots/Networking.drawio.png)
 
 ---
 
@@ -59,12 +58,12 @@ FS01 acts as the router between both networks.
 
 The lab environment was deployed using Hyper-V virtual machines.
 
-- DC01
-- FS01
-- WIN10-01
-- WIN10-02
+* DC01
+* FS01
+* WIN10-01
+* WIN10-02
 
-![Hyper-V Topology](01-hyperv-topology.png)
+![Hyper-V Topology](Screenshots/01-hyperv-topology.png)
 
 ---
 
@@ -72,10 +71,10 @@ The lab environment was deployed using Hyper-V virtual machines.
 
 FS01 contains two network adapters to route traffic between both subnets.
 
-- SALES Network → 192.168.10.1
-- IT Network → 192.168.20.1
+* SALES Network → 192.168.10.1
+* IT Network → 192.168.20.1
 
-![FS01 NIC Configuration](02-fs01-nics.png)
+![FS01 NIC Configuration](Screenshots/02-fs01-nics.png)
 
 ---
 
@@ -83,7 +82,7 @@ FS01 contains two network adapters to route traffic between both subnets.
 
 DC01 is configured as the DHCP and DNS server for the SALES subnet.
 
-![DC01 IP Configuration](03-dc01-ipconfig.png)
+![DC01 IP Configuration](Screenshots/03-dc01-ipconfig.png)
 
 ---
 
@@ -92,15 +91,16 @@ DC01 is configured as the DHCP and DNS server for the SALES subnet.
 DC01 provides DHCP services for the SALES subnet.
 
 DHCP scope:
-- Network: 192.168.10.0/24
-- Gateway: 192.168.10.1
-- DNS Server: 192.168.10.10
 
-![DHCP Scope](06-dhcp-scope.png)
+* Network: 192.168.10.0/24
+* Gateway: 192.168.10.1
+* DNS Server: 192.168.10.10
+
+![DHCP Scope](Screenshots/06-dhcp-scope.png)
 
 WIN10-01 successfully receives an IP address from DHCP.
 
-![WIN10-01 DHCP Lease](04-win10-01-dhcp.png)
+![WIN10-01 DHCP Lease](Screenshots/04-win10-01-dhcp.png)
 
 ---
 
@@ -109,12 +109,13 @@ WIN10-01 successfully receives an IP address from DHCP.
 DNS records were configured on DC01 for devices in the environment.
 
 Configured records:
-- DC01
-- FS01
-- WIN10-01
-- WIN10-02
 
-![DNS Records](05-dns-records.png)
+* DC01
+* FS01
+* WIN10-01
+* WIN10-02
+
+![DNS Records](Screenshots/05-dns-records.png)
 
 ---
 
@@ -122,7 +123,7 @@ Configured records:
 
 FS01 was configured with Routing and Remote Access Service (RRAS) to enable communication between the SALES and IT subnets.
 
-![RRAS Configuration](07-routing-enabled.png)
+![RRAS Configuration](Screenshots/07-routing-enabled.png)
 
 ---
 
@@ -130,31 +131,31 @@ FS01 was configured with Routing and Remote Access Service (RRAS) to enable comm
 
 Connectivity between subnets was verified using:
 
-- ping
-- tracert
+* ping
+* tracert
 
 WIN10-02 successfully communicates with devices in the SALES subnet.
 
 ## Ping Test
 
-![Cross-Subnet Ping](08-cross-subnet-ping.png)
+![Cross-Subnet Ping](Screenshots/08-cross-subnet-ping.png)
 
 ## Tracert Test
 
-![Tracert](09-tracert.png)
+![Tracert](Screenshots/09-tracert.png)
 
 ---
 
 # Skills Demonstrated
 
-- Windows networking fundamentals
-- TCP/IP configuration
-- DHCP administration
-- DNS configuration
-- RRAS routing
-- Subnetting and gateway configuration
-- Multi-subnet communication
-- Network connectivity testing
+* Windows networking fundamentals
+* TCP/IP configuration
+* DHCP administration
+* DNS configuration
+* RRAS routing
+* Subnetting and gateway configuration
+* Multi-subnet communication
+* Network connectivity testing
 
 ---
 
